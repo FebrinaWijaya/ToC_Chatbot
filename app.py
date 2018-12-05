@@ -1,9 +1,10 @@
 from bottle import route, run, request, abort, static_file
-
+import os
 from fsm import TocMachine
 
-
-VERIFY_TOKEN = "Your Webhook Verify Token"
+ 
+VERIFY_TOKEN = os.environ.get("VERIFY_TOKEN")
+#VERIFY_TOKEN = "FWy9z9bjutzBb1oLfjt2D" #"Your Webhook Verify Token" 
 machine = TocMachine(
     states=[
         'user',
