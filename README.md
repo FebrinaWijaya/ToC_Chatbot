@@ -58,6 +58,40 @@ And this chatbot will give you some recommendations about where you can go if yo
 			- Go back to step 3(Select another place or food of the same category)
 		3. Change my travel purpose
 			- Go back to step 2(Select another category)
+			
+## Deploy to Heroku
+### Webhook
+- Callback URL:  https://itsvacationtime.herokuapp.com/webhook
+- Verify token: FWy9z9bjutzBb1oLfjt2D
+
+### Push to Heroku
+- Install the Heroku CLI
+
+- If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
+    ```sh
+    $ heroku login
+    ```
+- Clone the repository
+Use Git to clone itsvacationtime's source code to your local machine.
+    ```sh
+    $ heroku git:clone -a itsvacationtime
+    $ cd itsvacationtime
+    ```
+- Deploy your changes
+Make some changes to the code you just cloned and deploy them to Heroku using Git.
+    ```sh
+    $ git add .
+    $ git commit -am "make it better"
+    $ git push heroku master
+    ```
+- Add heroku environment variables
+	```
+	heroku config:set VERIFY_TOKEN=FWy9z9bjutzBb1oLfjt2D
+	heroku config:set ACCESS_TOKEN=EAAaOfEoALZC0BAHgVj0iaXsr9jaRC1JagSWoSYyZByk3vK2ZCA6E0G6LBzCMcwnzgUnZAyyndlDvmYYqB7CvsxHL53DO1wSA4S7PH4zO2DEsL5fXZCQCHTCzZCWhYzW17rUXr2GN0Bwmiy6pD0OI5ZAOw4AFyFHbSLy1GPqYvZBpzS3PU7lSKpxF
+	```
+- Setup webhook just like step 3, 4, 5 using localhost
+	- Callback URL:  https://itsvacationtime.herokuapp.com/webhook
+	- Verify token: FWy9z9bjutzBb1oLfjt2D
 
 ## Localhost with ngrok
 To add environment variable:
@@ -93,38 +127,3 @@ ACCESS_TOKEN = "EAAaOfEoALZC0BAHgVj0iaXsr9jaRC1JagSWoSYyZByk3vK2ZCA6E0G6LBzCMcwn
 
 5. Generate token for the page and copy to ACCESS_TOKEN in utils.py
     ![](https://i.imgur.com/c5nYRKf.png)
-
-## Deploy to Heroku
-### Webhook
-- Callback URL:  https://itsvacationtime.herokuapp.com/webhook
-- Verify token: FWy9z9bjutzBb1oLfjt2D
-
-### Push to Heroku
-- Install the Heroku CLI
-
-- If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
-    ```sh
-    $ heroku login
-    ```
-- Clone the repository
-Use Git to clone itsvacationtime's source code to your local machine.
-    ```sh
-    $ heroku git:clone -a itsvacationtime
-    $ cd itsvacationtime
-    ```
-- Deploy your changes
-Make some changes to the code you just cloned and deploy them to Heroku using Git.
-    ```sh
-    $ git add .
-    $ git commit -am "make it better"
-    $ git push heroku master
-    ```
-- Add heroku environment variables
-	```
-	heroku config:set VERIFY_TOKEN=FWy9z9bjutzBb1oLfjt2D
-	heroku config:set ACCESS_TOKEN=EAAaOfEoALZC0BAHgVj0iaXsr9jaRC1JagSWoSYyZByk3vK2ZCA6E0G6LBzCMcwnzgUnZAyyndlDvmYYqB7CvsxHL53DO1wSA4S7PH4zO2DEsL5fXZCQCHTCzZCWhYzW17rUXr2GN0Bwmiy6pD0OI5ZAOw4AFyFHbSLy1GPqYvZBpzS3PU7lSKpxF
-	```
-- Setup webhook just like step 3, 4, 5 using localhost
-	- Callback URL:  https://itsvacationtime.herokuapp.com/webhook
-	- Verify token: FWy9z9bjutzBb1oLfjt2D
-
