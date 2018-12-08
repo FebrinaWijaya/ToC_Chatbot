@@ -40,25 +40,25 @@ And this chatbot will give you some recommendations about where you can go if yo
 		2. Beef Rendang
 		3. Fried Rice
 	```
-4. After you selected one place, we will send you:
+4. After you selected one option, we will send you:
 	- The introduction and some tips about visiting this place
-	- A **photograph** of the place
+	- A **photograph** of the place or food
 	- 3 quick options:
-		1. See next recommended place
+		1. See next recommended place or food
 			- see details of the next place of the same category\
 				e.g. for Adventure category:\
 				Raja Ampat -> Gili Islands -> Mount Bromo
-		2. Select another place
-			- Go back to step 3(Select another place of the same category)
+		2. Select another place or food
+			- Go back to step 3(Select another place or food of the same category)
 		3. Change my travel purpose
 			- Go back to step 2(Select another category)
 
 ## Localhost with ngrok
 To add environment variable:
 ```sh
-sudo -H subl /etc/environment
+VERIFY_TOKEN = "FWy9z9bjutzBb1oLfjt2D"
+ACCESS_TOKEN = "EAAaOfEoALZC0BAHgVj0iaXsr9jaRC1JagSWoSYyZByk3vK2ZCA6E0G6LBzCMcwnzgUnZAyyndlDvmYYqB7CvsxHL53DO1wSA4S7PH4zO2DEsL5fXZCQCHTCzZCWhYzW17rUXr2GN0Bwmiy6pD0OI5ZAOw4AFyFHbSLy1GPqYvZBpzS3PU7lSKpxF"
 ```
-![](https://i.imgur.com/Eeupr13.png)
 
 1. ```sh
     ./ngrok http 5000
@@ -113,4 +113,12 @@ Make some changes to the code you just cloned and deploy them to Heroku using Gi
     $ git commit -am "make it better"
     $ git push heroku master
     ```
+- Add heroku environment variables
+	```
+	heroku config:set VERIFY_TOKEN=FWy9z9bjutzBb1oLfjt2D
+	heroku config:set ACCESS_TOKEN=EAAaOfEoALZC0BAHgVj0iaXsr9jaRC1JagSWoSYyZByk3vK2ZCA6E0G6LBzCMcwnzgUnZAyyndlDvmYYqB7CvsxHL53DO1wSA4S7PH4zO2DEsL5fXZCQCHTCzZCWhYzW17rUXr2GN0Bwmiy6pD0OI5ZAOw4AFyFHbSLy1GPqYvZBpzS3PU7lSKpxF
+	```
+- Setup webhook just like step 3, 4, 5 using localhost
+	- Callback URL:  https://itsvacationtime.herokuapp.com/webhook
+	- Verify token: FWy9z9bjutzBb1oLfjt2D
 
