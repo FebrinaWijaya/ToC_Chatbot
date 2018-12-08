@@ -2,7 +2,7 @@
 
 ## It's Vacation Time!
 I am an international student from Indonesia.
-And this chatbot will give you some recommendations about where you can go if you would like to have vacation in Indonesia. Why I made this chatbot because usually my Taiwanese friends will always ask me about having vacation in Indonesia.
+And this chatbot will give you some recommendations about where you can go if you would like to travel to Indonesia. Why I made this chatbot because usually my Taiwanese friends will always ask me about having vacation in Indonesia.
 
 ## How to interact with this chatbot:
 1. First you can message anything to the fanpage https://www.facebook.com/Its-vacation-time-542778936191003/
