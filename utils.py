@@ -1,7 +1,5 @@
 import os
 import requests
-#from requests_toolbelt import MultipartEncoder
- 
 
 GRAPH_URL = "https://graph.facebook.com/v2.6"
 # your page access token

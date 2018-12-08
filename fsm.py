@@ -55,7 +55,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         responese = send_text_message(sender_id, data['text'])
-        response = send_image_url(sender_id, "./fsm.png", 'png')
+        # response = send_image_url(sender_id, "./fsm.png", 'png')
         # send_button_message(sender_id, "select one", data['buttons'])
 
     # def on_exit_purpose(self):
