@@ -17,37 +17,37 @@ class TocMachine(GraphMachine):
     def is_travelling_for_adventure(self, event):
         if event.get("message"):
             text = event['message']['text']
-            return text.lower() == 'adventure'
+            return text.lower() == 'adventure' or text.lower() == '1'
         elif (event.get("postback")):
             text = event['postback']['payload']
-            return text.lower() == 'adventure'
+            return text.lower() == 'adventure' or text.lower() == '1'
         return False
 
     def is_travelling_for_historical(self, event):
         if event.get("message"):
             text = event['message']['text']
-            return text.lower() == 'historical buildings'
+            return text.lower() == 'historical buildings'  or text.lower() == '2'
         elif (event.get("postback")):
             text = event['postback']['payload']
-            return text.lower() == 'historical buildings'
+            return text.lower() == 'historical buildings' or text.lower() == '2'
         return False
 
     def is_travelling_for_naturals(self, event):
         if event.get("message"):
             text = event['message']['text']
-            return text.lower() == 'naturals'
+            return text.lower() == 'naturals' or text.lower() == '3'
         elif (event.get("postback")):
             text = event['postback']['payload']
-            return text.lower() == 'naturals'
+            return text.lower() == 'naturals'  or text.lower() == '3'
         return False
 
     def is_travelling_for_local_food(self, event):
         if event.get("message"):
             text = event['message']['text']
-            return text.lower() == 'local food'
+            return text.lower() == 'local food' or text.lower() == '4'
         elif (event.get("postback")):
             text = event['postback']['payload']
-            return text.lower() == 'local food'
+            return text.lower() == 'local food' or text.lower() == '4'
         return False
 
     def on_enter_purpose(self, event):
@@ -55,7 +55,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         responese = send_text_message(sender_id, data['text'])
-        response = send_image_url(sender_id, "./fsm.png")
+        response = send_image_url(sender_id, "./fsm.png", 'png')
         # send_button_message(sender_id, "select one", data['buttons'])
 
     # def on_exit_purpose(self):
@@ -76,7 +76,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         send_text_message(sender_id, data['Historical Buildings']['text_to_send'])
-        send_button_message(sender_id, data['Historical Buildings']['text_buton'], data['Historical Buildings']['buttons'])
+        send_button_message(sender_id, data['Historical Buildings']['text_button'], data['Historical Buildings']['buttons'])
 
     # def on_exit_historical(self):
     #     print('Leaving historical')
@@ -134,6 +134,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         send_text_message(sender_id, data['Adventure']['Raja Ampat Islands, West Papua']['text'])
+        send_image_url(sender_id, data['Adventure']['Raja Ampat Islands, West Papua']['image'], data['Adventure']['Raja Ampat Islands, West Papua']['image_type'])
         send_button_message(sender_id, "quick options:", data['Adventure']['Raja Ampat Islands, West Papua']['buttons'])
 
     def on_enter_gili_island(self, event):
@@ -141,6 +142,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         send_text_message(sender_id, data['Adventure']['Gili Islands, Lombok']['text'])
+        send_image_url(sender_id, data['Adventure']['Gili Islands, Lombok']['image'], data['Adventure']['Gili Islands, Lombok']['image_type'])
         send_button_message(sender_id, "quick options:", data['Adventure']['Gili Islands, Lombok']['buttons'])
 
     def on_enter_mount_bromo(self, event):
@@ -148,6 +150,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         send_text_message(sender_id, data['Adventure']['Mount Bromo, East Java']['text'])
+        send_image_url(sender_id, data['Adventure']['Mount Bromo, East Java']['image'], data['Adventure']['Mount Bromo, East Java']['image_type'])
         send_button_message(sender_id, "quick options:", data['Adventure']['Mount Bromo, East Java']['buttons'])
 
 #########################################################################
@@ -184,6 +187,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         send_text_message(sender_id, data['Historical Buildings']['Borobudur Temple, Magelang']['text'])
+        send_image_url(sender_id, data['Historical Buildings']['Borobudur Temple, Magelang']['image'], data['Historical Buildings']['Borobudur Temple, Magelang']['image_type'])
         send_button_message(sender_id, "quick options:", data['Historical Buildings']['Borobudur Temple, Magelang']['buttons'])
 
     def on_enter_prambanan(self, event):
@@ -191,6 +195,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         send_text_message(sender_id, data['Historical Buildings']['Prambanan Temple, Yogyakarta']['text'])
+        send_image_url(sender_id, data['Historical Buildings']['Prambanan Temple, Yogyakarta']['image'], data['Historical Buildings']['Prambanan Temple, Yogyakarta']['image_type'])
         send_button_message(sender_id, "quick options:", data['Historical Buildings']['Prambanan Temple, Yogyakarta']['buttons'])
 
     def on_enter_old_town(self, event):
@@ -198,6 +203,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         send_text_message(sender_id, data['Historical Buildings']['Kota Tua (Old Town), Jakarta']['text'])
+        send_image_url(sender_id, data['Historical Buildings']['Kota Tua (Old Town), Jakarta']['image'], data['Historical Buildings']['Kota Tua (Old Town), Jakarta']['image_type'])
         send_button_message(sender_id, "quick options:", data['Historical Buildings']['Kota Tua (Old Town), Jakarta']['buttons'])
 
 #########################################################################
@@ -234,6 +240,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         send_text_message(sender_id, data['Naturals']['Bali, the Island of Gods']['text'])
+        send_image_url(sender_id, data['Naturals']['Bali, the Island of Gods']['image'], data['Naturals']['Bali, the Island of Gods']['image_type'])
         send_button_message(sender_id, "quick options:", data['Naturals']['Bali, the Island of Gods']['buttons'])
 
     def on_enter_lake_toba(self, event):
@@ -241,6 +248,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         send_text_message(sender_id, data['Naturals']['Lake Toba, North Sumatra']['text'])
+        send_image_url(sender_id, data['Naturals']['Lake Toba, North Sumatra']['image'], data['Naturals']['Lake Toba, North Sumatra']['image_type'])
         send_button_message(sender_id, "quick options:", data['Naturals']['Lake Toba, North Sumatra']['buttons'])
 
     def on_enter_dieng_plateau(self, event):
@@ -248,6 +256,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         send_text_message(sender_id, data['Naturals']['Dieng Plateau']['text'])
+        send_image_url(sender_id, data['Naturals']['Dieng Plateau']['image'], data['Naturals']['Dieng Plateau']['image_type'])
         send_button_message(sender_id, "quick options:", data['Naturals']['Dieng Plateau']['buttons'])
 
 #########################################################################
@@ -284,6 +293,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         send_text_message(sender_id, data['Local Food']['Satay']['text'])
+        send_image_url(sender_id, data['Local Food']['Satay']['image'], data['Local Food']['Satay']['image_type'])
         send_button_message(sender_id, "quick options:", data['Local Food']['Satay']['buttons'])
 
     def on_enter_rendang(self, event):
@@ -291,6 +301,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         send_text_message(sender_id, data['Local Food']['Rendang']['text'])
+        send_image_url(sender_id, data['Local Food']['Rendang']['image'], data['Local Food']['Rendang']['image_type'])
         send_button_message(sender_id, "quick options:", data['Local Food']['Rendang']['buttons'])
 
     def on_enter_fried_rice(self, event):
@@ -298,6 +309,7 @@ class TocMachine(GraphMachine):
 
         sender_id = event['sender']['id']
         send_text_message(sender_id, data['Local Food']['Fried Rice']['text'])
+        send_image_url(sender_id, data['Local Food']['Fried Rice']['image'], data['Local Food']['Fried Rice']['image_type'])
         send_button_message(sender_id, "quick options:", data['Local Food']['Fried Rice']['buttons'])
 
 ############################################################

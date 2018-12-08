@@ -1,6 +1,6 @@
 import os
 import requests
-from requests_toolbelt import MultipartEncoder
+#from requests_toolbelt import MultipartEncoder
  
 
 GRAPH_URL = "https://graph.facebook.com/v2.6"
@@ -22,14 +22,14 @@ def send_text_message(id, text):
 
 
 
-def send_image_url(id, img_url):
+def send_image_url(id, img_path, img_type):
     fb_url = GRAPH_URL + '/me/messages'
     data = {
         'recipient': '{"id":'+ id + '}',
         'message': '{"attachment":{"type":"image", "payload":{}}}'
     }
     files = {
-        'filedata': (os.path.basename(img_url), open(img_url, 'rb'), 'image/png')}
+        'filedata': (os.path.basename(img_path), open(img_path, 'rb'), 'image/'+img_type)}
     params = {'access_token': ACCESS_TOKEN}
     response = requests.post(fb_url, params=params, data=data, files=files)
     if response.status_code != 200:
@@ -47,7 +47,7 @@ def send_button_message(id, text, buttons):
           "payload":{
             "template_type":"button",
             "text": text,
-            "buttons": buttons
+            "buttons":buttons
           }
         }}
     }

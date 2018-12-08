@@ -34,7 +34,7 @@ You can either setup https server or using `ngrok` as a proxy.
 ```sh
 ./ngrok http 5000
 ```
-
+ 
 After that, `ngrok` would generate a https URL.
 
 #### Run the sever
@@ -44,7 +44,7 @@ python3 app.py
 ```
 
 ## Finite State Machine
-![fsm](./img/show-fsm.png)
+![fsm](./fsm.png)
 
 ## Usage
 The initial state is set to `user`.
@@ -57,7 +57,6 @@ Every time `user` state is triggered to `advance` to another state, it will `go_
 
 	* Input: "go to state2"
 		* Reply: "I'm entering state2"
-
 
 ## Reference
 [TOC-Project-2017](https://github.com/Lee-W/TOC-Project-2017) ❤️ [@Lee-W](https://github.com/Lee-W)
