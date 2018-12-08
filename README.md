@@ -7,6 +7,9 @@ And this chatbot will give you some recommendations about where you can go if yo
 ## FSM
 ![](./fsm_landscape.png)
 
+## Example interaction with chatbot
+![](./example_chat.png)
+
 ## How to interact with this chatbot:
 1. First you can message anything to the fanpage https://www.facebook.com/Its-vacation-time-542778936191003/
 2. We will ask you the main purpose of your travel. There are four options:
