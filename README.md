@@ -62,19 +62,19 @@ And this chatbot will give you some recommendations about where you can go if yo
 ## Localhost with ngrok
 To add environment variable:
 ```sh
-VERIFY_TOKEN = "FWy9z9bjutzBb1oLfjt2D"
-ACCESS_TOKEN = "EAAaOfEoALZC0BAHgVj0iaXsr9jaRC1JagSWoSYyZByk3vK2ZCA6E0G6LBzCMcwnzgUnZAyyndlDvmYYqB7CvsxHL53DO1wSA4S7PH4zO2DEsL5fXZCQCHTCzZCWhYzW17rUXr2GN0Bwmiy6pD0OI5ZAOw4AFyFHbSLy1GPqYvZBpzS3PU7lSKpxF"
+$ extern VERIFY_TOKEN=FWy9z9bjutzBb1oLfjt2D
+$ extern ACCESS_TOKEN=EAAaOfEoALZC0BAHgVj0iaXsr9jaRC1JagSWoSYyZByk3vK2ZCA6E0G6LBzCMcwnzgUnZAyyndlDvmYYqB7CvsxHL53DO1wSA4S7PH4zO2DEsL5fXZCQCHTCzZCWhYzW17rUXr2GN0Bwmiy6pD0OI5ZAOw4AFyFHbSLy1GPqYvZBpzS3PU7lSKpxF
 ```
 
 1. ```sh
-    ./ngrok http 5000
+    $ ./ngrok http 5000
     ```
     - will generate https link
         - e.g  https://7398aaae.ngrok.io
     ![](https://i.imgur.com/cvqkhpF.png)
 2. run the script:
     ```sh
-    python3 app.py
+    $ python3 app.py
     ```
     ![](https://i.imgur.com/U3vcOTa.png)
 3. copy the ngrok link to webhook, fill in the right verification token
